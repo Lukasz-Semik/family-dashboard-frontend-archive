@@ -1,0 +1,7 @@
+{
+  "name": "family-dashboard-frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "djpluki <djpluki@gmail.com>",
+  "license": "MIT"
+}
