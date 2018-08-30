@@ -1,14 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 import 'normalize.css';
 
-import Setter from 'components/Setter';
-// import configureStore from 'store/configureStore';
-// import Routing from 'routing/Routing';
+import configureStore from 'store/configureStore';
+import Routing from 'routing/Routing';
 
 import './styles/global-settings';
 
-// const store = configureStore();
+const store = configureStore();
 
-ReactDOM.render(<Setter />, document.getElementById('root'));
+ReactDOM.render(
+  <Provider store={store}>
+    <Routing />
+  </Provider>,
+  document.getElementById('root')
+);

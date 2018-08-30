@@ -1,8 +1,9 @@
 {
-  "extends": "airbnb",
+  "extends": ["airbnb", "plugin:prettier/recommended"],
   "parserOptions": {
     "ecmaVersion": 8
   },
+  "plugins": ["prettier"],
   "parser": "babel-eslint",
   "env": {
     "browser": true
@@ -16,8 +17,7 @@
     ],
     "max-len": ["error", { "code": 120 }],
     "import/prefer-default-export": 0,
-    "jsx-a11y/anchor-is-valid": 0,
-    "arrow-parens": 0
+    "jsx-a11y/anchor-is-valid": 0
   },
   "settings": {
     "import/resolver": {
