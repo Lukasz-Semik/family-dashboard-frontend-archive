@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server",
-    "lint": "eslint .",
+    "lint": "eslint src",
     "test": "jest --coverage src/**/*.spec.js",
     "prepush": "yarn lint && yarn test"
   },
