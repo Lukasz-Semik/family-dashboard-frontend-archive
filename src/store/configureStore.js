@@ -3,8 +3,9 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { multiClientMiddleware } from 'redux-axios-middleware';
 import thunk from 'redux-thunk';
 
+import clients from 'api';
+
 import rootReducer from './rootReducer';
-import clients from './api';
 
 const apiMiddlewareOptions = {
   returnRejectedPromiseOnError: true,

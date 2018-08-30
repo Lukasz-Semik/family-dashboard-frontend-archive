@@ -5,6 +5,10 @@
   "author": "djpluki <djpluki@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "start": "node server/server.js",
+    "build:dev": "webpack",
+    "build:prod": "webpack -p --env production",
+    "deploy": "git checkout master && git pull origin master && git push heroku master",
     "dev": "webpack-dev-server",
     "lint": "eslint src",
     "test": "jest --coverage src/**/*.spec.js",
@@ -21,6 +25,7 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.11",
     "dotenv": "^5.0.1",
+    "express": "^4.16.3",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "final-form": "^4.6.1",
     "lodash": "^4.17.10",
