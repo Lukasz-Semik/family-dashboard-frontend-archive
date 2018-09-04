@@ -1,11 +1,14 @@
 import { injectGlobal } from 'styled-components';
 
+import colors from './colors';
+
 /* eslint-disable no-unused-expressions */
 injectGlobal`
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
   }
 
   html{
@@ -13,7 +16,7 @@ injectGlobal`
   }
 
   body {
-    background: red;
+    background: ${colors.mainGreen};
   }
 
   a {
