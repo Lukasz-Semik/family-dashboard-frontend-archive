@@ -1,9 +1,7 @@
-import { injectGlobal } from 'styled-components';
-
+import { createGlobalStyle } from 'styled-components';
 import colors from './colors';
 
-/* eslint-disable no-unused-expressions */
-injectGlobal`
+const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
@@ -23,4 +21,5 @@ injectGlobal`
     text-decoration: none;
   }
 `;
-/* eslint-enable */
+
+export default GlobalStyle;

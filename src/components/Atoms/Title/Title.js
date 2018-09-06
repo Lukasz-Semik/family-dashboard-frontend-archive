@@ -1,14 +1,12 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { FormattedMessage } from 'react-intl';
+import { isEmpty } from 'lodash';
 import PropTypes from 'prop-types';
 
 import colors from 'styles/colors';
 
-const Heading = ({ tag: CustomTag, children, className }) => (
-  <CustomTag className={className}>{children}</CustomTag>
-);
-
-const Title = styled(Heading)`
+const Heading = styled.h1`
   ${props => css`
     color: ${props.color || colors.mainBlue};
     text-transform: ${props.isUppercased && 'uppercase'};
@@ -22,14 +20,28 @@ const Title = styled(Heading)`
   margin: 0;
 `;
 
-Heading.propTypes = {
-  tag: PropTypes.string,
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string.isRequired,
+const Title = ({ tag: CustomTag, children, translationPath, ...styles }) => {
+  const hasTranslation = !isEmpty(translationPath);
+
+  if (isEmpty(children) && !hasTranslation) return null;
+
+  return (
+    <Heading as={CustomTag} {...styles}>
+      {!isEmpty(translationPath) ? <FormattedMessage id={translationPath} /> : children}
+    </Heading>
+  );
 };
 
-Heading.defaultProps = {
+Title.propTypes = {
+  tag: PropTypes.string,
+  children: PropTypes.node,
+  translationPath: PropTypes.string,
+};
+
+Title.defaultProps = {
   tag: 'h1',
+  children: null,
+  translationPath: '',
 };
 
 export default Title;

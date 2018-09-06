@@ -25,7 +25,7 @@ const HugeButtonWrapper = styled.div`
 const LandingPage = () => (
   <Fragment>
     <TitleWrapper>
-      <Title isUppercased>Family Dashboard</Title>
+      <Title isUppercased translationPath="main.familyDashboard" />
     </TitleWrapper>
 
     <Card width={450} hasMarginBottomMd isCentered>
