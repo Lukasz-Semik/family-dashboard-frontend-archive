@@ -7,25 +7,20 @@ import {
   BUTTON_LEFT_CARD,
   BUTTON_RIGHT_CARD,
 } from 'constants/landingCarousel';
-import colors from 'styles/colors';
 import { Column, Row } from 'components/Atoms/Grid/Grid';
 import Card from 'components/Atoms/Card/Card';
 import Button from 'components/Atoms/Button/Button';
-import Title from 'components/Atoms/Title/Title';
 
 import LandingCarouselContainer from './LandingCarouselContainer';
 import { CardWrapper, MainWrapper, FlyingWrapper, ButtonCardWrapper } from './components/styled';
+import LandingTitle from './components/LandingTitle/LandingTitle';
 
 const LandingCarousel = ({ isMovedRight, isMovedLeft, moveRight, moveLeft, moveCenter }) => {
   const currentPosition = { isMovedRight, isMovedLeft };
 
   return (
     <div>
-      <Card width={450} hasMarginBottomMd isCentered hasDefaultPadding>
-        <Title tag="h2" color={colors.mainOrange} isUppercased isSmall isCentered>
-          Sign Up
-        </Title>
-      </Card>
+      <LandingTitle {...currentPosition} />
 
       <MainWrapper>
         <FlyingWrapper isMovedRight={isMovedRight} isMovedLeft={isMovedLeft}>

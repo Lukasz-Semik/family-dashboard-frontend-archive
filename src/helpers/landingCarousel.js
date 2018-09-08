@@ -5,14 +5,13 @@ import {
   CONTENT_RIGHT_CARD,
   BUTTON_LEFT_CARD,
   BUTTON_RIGHT_CARD,
+  smallSizes,
+  mediumSizes,
+  largeSizes,
 } from 'constants/landingCarousel';
 
 export const generateSize = (item, position) => {
-  const smallSizes = { width: 100, height: 100 };
   if (isEmpty(position)) return smallSizes;
-
-  const mediumSizes = { width: 300, height: 300 };
-  const largeSizes = { width: 450, height: 400 };
 
   const { isMovedLeft, isMovedRight } = position;
 
