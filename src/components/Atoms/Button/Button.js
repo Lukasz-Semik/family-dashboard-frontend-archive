@@ -11,22 +11,31 @@ const buttonReset = css`
 
 const ButtonPure = styled.button`
   ${buttonReset};
+
+  ${props => css`
+    width: ${props.isFillingParent ? '100%' : 'auto'};
+    height: ${props.isFillingParent ? '100%' : 'auto'};
+  `};
 `;
 
-const Button = ({ translationPath, children, onClick }) => (
-  <ButtonPure onClick={onClick}>{translationPath || children}</ButtonPure>
+const Button = ({ translationPath, children, onClick, isFillingParent }) => (
+  <ButtonPure isFillingParent={isFillingParent} onClick={onClick}>
+    {translationPath || children}
+  </ButtonPure>
 );
 
 Button.propTypes = {
   translationPath: PropTypes.string,
   children: PropTypes.node,
   onClick: PropTypes.func,
+  isFillingParent: PropTypes.bool,
 };
 
 Button.defaultProps = {
   translationPath: '',
   children: null,
   onClick: null,
+  isFillingParent: false,
 };
 
 export default Button;
