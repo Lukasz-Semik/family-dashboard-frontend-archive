@@ -12,8 +12,9 @@ import Card from 'components/Atoms/Card/Card';
 import Button from 'components/Atoms/Button/Button';
 
 import LandingCarouselContainer from './LandingCarouselContainer';
-import { CardWrapper, MainWrapper, FlyingWrapper, ButtonCardWrapper } from './components/styled';
+import { CardWrapper, MainWrapper, FlyingWrapper } from './components/styled';
 import LandingTitle from './components/LandingTitle/LandingTitle';
+import LandingButton from './components/LandingButton/LandingButton';
 
 const LandingCarousel = ({ isMovedRight, isMovedLeft, moveRight, moveLeft, moveCenter }) => {
   const currentPosition = { isMovedRight, isMovedLeft };
@@ -24,15 +25,12 @@ const LandingCarousel = ({ isMovedRight, isMovedLeft, moveRight, moveLeft, moveC
 
       <MainWrapper>
         <FlyingWrapper isMovedRight={isMovedRight} isMovedLeft={isMovedLeft}>
-          <ButtonCardWrapper isMovedRight={isMovedRight}>
-            <CardWrapper>
-              <Card {...generateSize(BUTTON_LEFT_CARD, currentPosition)} isCentered>
-                <Button onClick={moveLeft} isFillingParent>
-                  Button Left
-                </Button>
-              </Card>
-            </CardWrapper>
-          </ButtonCardWrapper>
+          <LandingButton
+            onClick={moveLeft}
+            currentPosition={currentPosition}
+            itemName={BUTTON_LEFT_CARD}
+            translationPath="landing.titles.signUp"
+          />
 
           <Row>
             <Column isOneThird>
@@ -66,15 +64,13 @@ const LandingCarousel = ({ isMovedRight, isMovedLeft, moveRight, moveLeft, moveC
             </Column>
           </Row>
 
-          <ButtonCardWrapper isMovedLeft={isMovedLeft} isRightButton>
-            <CardWrapper>
-              <Card {...generateSize(BUTTON_RIGHT_CARD, currentPosition)} isCentered>
-                <Button onClick={moveRight} isFillingParent>
-                  Form Placeholder
-                </Button>
-              </Card>
-            </CardWrapper>
-          </ButtonCardWrapper>
+          <LandingButton
+            onClick={moveRight}
+            currentPosition={currentPosition}
+            itemName={BUTTON_RIGHT_CARD}
+            translationPath="landing.titles.welcome"
+            isRightButton
+          />
         </FlyingWrapper>
       </MainWrapper>
     </div>

@@ -25,6 +25,7 @@ class LandingCarouselContainer extends PureComponent {
   render() {
     const { isMovedRight, isMovedLeft } = this.state;
     const { render } = this.props;
+
     return render({
       isMovedRight,
       isMovedLeft,
