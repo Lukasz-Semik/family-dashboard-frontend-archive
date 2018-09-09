@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import { mountDefaultIntro } from 'styles/animations';
 import { mixinContentCenterFlex } from 'styles/mixins';
 
 export const CardWrapper = styled.div`
@@ -32,4 +33,13 @@ export const ButtonCardWrapper = styled.div`
   transform: translateY(-50%);
   width: 33.33%;
   left: ${props => (props.isRightButton ? '100%' : '-33.33%')};
+`;
+
+export const AnimatedWrapper = styled.div`
+  animation: ${mountDefaultIntro} 0.5s linear;
+`;
+
+export const AnimatedButtonWrapper = styled.div`
+  height: 100%;
+  animation: ${mountDefaultIntro} 0.5s linear;
 `;

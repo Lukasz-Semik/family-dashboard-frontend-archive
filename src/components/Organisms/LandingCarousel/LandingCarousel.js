@@ -1,19 +1,18 @@
 import React from 'react';
 
-import { generateSize } from 'helpers/landingCarousel';
 import {
   CONTENT_LEFT_CARD,
   CONTENT_RIGHT_CARD,
+  CONTENT_CENTER_CARD,
   BUTTON_LEFT_CARD,
   BUTTON_RIGHT_CARD,
 } from 'constants/landingCarousel';
 import { Column, Row } from 'components/Atoms/Grid/Grid';
-import Card from 'components/Atoms/Card/Card';
-import Button from 'components/Atoms/Button/Button';
 
 import LandingCarouselContainer from './LandingCarouselContainer';
-import { CardWrapper, MainWrapper, FlyingWrapper } from './components/styled';
+import { MainWrapper, FlyingWrapper } from './components/styled';
 import LandingTitle from './components/LandingTitle/LandingTitle';
+import LandingElement from './components/LandingElement/LandingElement';
 import LandingButton from './components/LandingButton/LandingButton';
 
 const LandingCarousel = ({ isMovedRight, isMovedLeft, moveRight, moveLeft, moveCenter }) => {
@@ -28,46 +27,49 @@ const LandingCarousel = ({ isMovedRight, isMovedLeft, moveRight, moveLeft, moveC
           <LandingButton
             onClick={moveLeft}
             currentPosition={currentPosition}
-            itemName={BUTTON_LEFT_CARD}
+            elementName={BUTTON_LEFT_CARD}
             translationPath="landing.titles.signUp"
           />
 
           <Row>
             <Column isOneThird>
-              <CardWrapper>
-                <Card {...generateSize(CONTENT_LEFT_CARD, currentPosition)}>
-                  <Button onClick={moveRight} isFillingParent>
-                    dsa
-                  </Button>
-                </Card>
-              </CardWrapper>
+              <LandingElement
+                onClick={moveRight}
+                elementName={CONTENT_LEFT_CARD}
+                currentPosition={currentPosition}
+                buttonTranslationPath="landing.titles.welcome"
+              >
+                <div>WELCOME CARD</div>
+              </LandingElement>
             </Column>
 
             <Column isOneThird>
-              <CardWrapper>
-                <Card {...generateSize(null, currentPosition)} isCentered>
-                  <Button onClick={moveCenter} isFillingParent>
-                    Form Placeholder
-                  </Button>
-                </Card>
-              </CardWrapper>
+              <LandingElement
+                onClick={moveCenter}
+                elementName={CONTENT_CENTER_CARD}
+                currentPosition={currentPosition}
+                buttonTranslationPath="landing.titles.signIn"
+              >
+                <div>SIGN IN CARD</div>
+              </LandingElement>
             </Column>
 
             <Column isOneThird>
-              <CardWrapper>
-                <Card {...generateSize(CONTENT_RIGHT_CARD, currentPosition)}>
-                  <Button onClick={moveLeft} isFillingParent>
-                    dsad
-                  </Button>
-                </Card>
-              </CardWrapper>
+              <LandingElement
+                onClick={moveLeft}
+                elementName={CONTENT_RIGHT_CARD}
+                currentPosition={currentPosition}
+                buttonTranslationPath="landing.titles.signUp"
+              >
+                <div>SIGN UP CARD</div>
+              </LandingElement>
             </Column>
           </Row>
 
           <LandingButton
             onClick={moveRight}
             currentPosition={currentPosition}
-            itemName={BUTTON_RIGHT_CARD}
+            elementName={BUTTON_RIGHT_CARD}
             translationPath="landing.titles.welcome"
             isRightButton
           />

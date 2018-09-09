@@ -6,29 +6,59 @@ import Button from 'components/Atoms/Button/Button';
 import Card from 'components/Atoms/Card/Card';
 import Title from 'components/Atoms/Title/Title';
 
-import { CardWrapper, ButtonCardWrapper } from '../styled';
+import { CardWrapper, ButtonCardWrapper, AnimatedButtonWrapper } from '../styled';
 
-const LandingButton = ({ itemName, currentPosition, onClick, translationPath, isRightButton }) => (
-  <ButtonCardWrapper {...currentPosition} isRightButton={isRightButton}>
-    <CardWrapper>
-      <Card {...generateSize(itemName, currentPosition)} isCentered>
-        <Button
-          data-test="landing-button"
-          onClick={onClick}
-          color={colors.mainBlue}
-          hasUnderscoreMarker
-          isFillingParent
-        >
-          <Title
-            data-test="landing-button-text"
-            tag="h3"
-            translationPath={translationPath}
-            isMedium
-          />
-        </Button>
-      </Card>
-    </CardWrapper>
-  </ButtonCardWrapper>
-);
+const LandingButton = ({
+  elementName,
+  currentPosition,
+  onClick,
+  translationPath,
+  isRightButton,
+}) => {
+  const { isMovedRight, isMovedLeft } = currentPosition;
+  const isVisible = isMovedRight || isMovedLeft;
+
+  return (
+    <ButtonCardWrapper {...currentPosition} isRightButton={isRightButton}>
+      <CardWrapper>
+        <Card {...generateSize(elementName, currentPosition)} isCentered>
+          {isVisible ? (
+            <AnimatedButtonWrapper>
+              <Button
+                data-test="landing-button"
+                onClick={onClick}
+                color={colors.mainBlue}
+                hasUnderscoreMarker
+                isFillingParent
+              >
+                <Title
+                  data-test="landing-button-text"
+                  tag="h3"
+                  translationPath={translationPath}
+                  isMedium
+                />
+              </Button>
+            </AnimatedButtonWrapper>
+          ) : (
+            <Button
+              data-test="landing-button"
+              onClick={onClick}
+              color={colors.mainBlue}
+              hasUnderscoreMarker
+              isFillingParent
+            >
+              <Title
+                data-test="landing-button-text"
+                tag="h3"
+                translationPath={translationPath}
+                isMedium
+              />
+            </Button>
+          )}
+        </Card>
+      </CardWrapper>
+    </ButtonCardWrapper>
+  );
+};
 
 export default LandingButton;
