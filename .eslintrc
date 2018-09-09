@@ -26,6 +26,24 @@
       }
     ]
   },
+  "overrides": [
+    {
+      "files": ["**/*.spec.js"],
+      "globals": {
+        "mount": true,
+        "shallow": true,
+        "render": true,
+        "mountWithIntl": true,
+        "shallowWithIntl": true,
+        "renderWithIntl": true,
+        "loadTranslationObject": true
+      },
+      "rules": {
+        "react/react-in-jsx-scope": 0,
+        "react/jsx-closing-tag-location": 0
+      }
+    }
+  ],
   "settings": {
     "import/resolver": {
       "webpack": {
